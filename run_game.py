@@ -8,10 +8,13 @@ def run_game():
         if not game.get_first_move_played():
             game.set_starting_player()
             
-        game.current_move.get_move()
-        print(game.current_move.row, game.current_move.column)
-        print(game.last_move_played.row, game.last_move_played.column)
-        if game.current_move.is_move_legal(game.get_board(), game.get_first_move_played(), game.get_last_move_played()):
+        if game.current_player == 1:
+            game.current_move.get_move()
+        else:
+            while game.current_move.get_ai_move().is_move_legal(game.get_board(), game.get_first_move_played(), game.get_last_move_played(), game.get_board().get_big_board()) == False:
+                pass
+
+        if game.current_move.is_move_legal(game.get_board(), game.get_first_move_played(), game.get_last_move_played(), game.get_board().get_big_board()):
             game.get_board().modify_board(game.current_move.row, game.current_move.column, game.current_player)
             game.set_last_move_played(game.current_move)
             game.get_board().print_board()

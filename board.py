@@ -34,6 +34,9 @@ class Board:
     def get_board(self):
         return self.board
 
+    def get_big_board(self):
+        return self.big_board
+
     def print_board(self):
         reshaped_board = np.array(self.board).reshape(3, 3, 3, 3).swapaxes(1, 2).reshape(9, 9)
         for i in range(9):
