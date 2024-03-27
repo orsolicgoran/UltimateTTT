@@ -38,3 +38,6 @@ class Move:
 
     def set_column(self, column):
         self.column = column
+
+    def to_string(self):
+        return f"{self.row} {self.column}"

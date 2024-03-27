@@ -18,6 +18,7 @@ def run_game():
             game.get_board().modify_board(game.current_move.row, game.current_move.column, game.current_player)
             game.set_last_move_played(game.current_move)
             game.get_board().print_board()
+            print(f"Last move played: {game.get_last_move_played().to_string()}")
             game.switch_turn()
         else:
             print("Illegal move, game over.")
